@@ -56,7 +56,49 @@ class ViewController: UIViewController {
         setUpButton("県別状況", size: size, y: height + 240, color: colors.blue, parentView: view)
         setUpImageButton("chat", x: view.frame.size.width - 50).addTarget(self, action: #selector(chatAction), for: .touchDown)
         setUpImageButton("reload", x:10).addTarget(self, action: #selector(reloadAction), for: .touchDown)
+        
+        let imageView = UIImageView()
+        let image = UIImage(named: "virus")
+        imageView.image = image
+        imageView.frame = CGRect(x: view.frame.size.width, y: -65, width: 50, height: 50)
+        contentView.addSubview(imageView)
+        UIView.animate(withDuration: 1.5, delay: 0.5, options: [.curveEaseIn], animations: {
+            imageView.frame = CGRect(x: self.view.frame.size.width - 100, y: -65, width: 50, height: 50)
+            imageView.transform = CGAffineTransform(rotationAngle: -90)
+        }, completion: nil)
     }
+ 
+    func setUpAPI(parentView: UIView) {
+        let pcr = UILabel()
+        let positive = UILabel()
+        let hospitalize = UILabel()
+        let severe = UILabel()
+        let death = UILabel()
+        let discharge = UILabel()
+        
+        let size = CGSize(width: 200, height: 40)
+        let leftX = view.frame.size.width * 0.38
+        let rightX = view.frame.size.width * 0.85
+        let font = UIFont.systemFont(ofSize: 35, weight: .heavy)
+        let color = colors.blue
+        
+        setUpAPILabel(pcr, size: size, centerX: leftX, y: 60, font: font, color: color, parentView)
+        setUpAPILabel(positive, size: size, centerX: rightX, y: 60, font: font, color: color, parentView)
+        setUpAPILabel(hospitalize, size: size, centerX: leftX, y: 160, font: font, color: color, parentView)
+        setUpAPILabel(severe, size: size, centerX: rightX, y: 160, font: font, color: color, parentView)
+        setUpAPILabel(death, size: size, centerX: leftX, y: 260, font: font, color: color, parentView)
+        setUpAPILabel(discharge, size: size, centerX: rightX, y: 260, font: font, color: color, parentView)
+    }
+    
+    func setUpAPILabel(_ label: UILabel, size: CGSize, centerX: CGFloat, y:CGFloat, font: UIFont, color: UIColor, _ parentView: UIView) {
+        label.frame.size = size
+        label.center.x = centerX
+        label.frame.origin.y = y
+        label.font = font
+        label.textColor = color
+        parentView.addSubview(label)
+    }
+    
     @objc func goHealthCheck() {
         performSegue(withIdentifier: "goHealthCheck", sender: nil)
     }
