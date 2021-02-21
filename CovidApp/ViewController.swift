@@ -66,6 +66,9 @@ class ViewController: UIViewController {
             imageView.frame = CGRect(x: self.view.frame.size.width - 100, y: -65, width: 50, height: 50)
             imageView.transform = CGAffineTransform(rotationAngle: -90)
         }, completion: nil)
+        
+        setUpAPI(parentView: contentView)
+        
     }
  
     func setUpAPI(parentView: UIView) {
@@ -88,6 +91,17 @@ class ViewController: UIViewController {
         setUpAPILabel(severe, size: size, centerX: rightX, y: 160, font: font, color: color, parentView)
         setUpAPILabel(death, size: size, centerX: leftX, y: 260, font: font, color: color, parentView)
         setUpAPILabel(discharge, size: size, centerX: rightX, y: 260, font: font, color: color, parentView)
+        
+        CovidAPI.getTotal(completion: {(result: CovidInfo.Total) -> Void in
+            DispatchQueue.main.async {
+                pcr.text = "\(result.pcr)"
+                positive.text = "\(result.positive)"
+                hospitalize.text = "\(result.hospitalize)"
+                severe.text = "\(result.severe)"
+                death.text = "\(result.death)"
+                discharge.text = "\(result.discharge)"
+            }
+        })
     }
     
     func setUpAPILabel(_ label: UILabel, size: CGSize, centerX: CGFloat, y:CGFloat, font: UIFont, color: UIColor, _ parentView: UIView) {
