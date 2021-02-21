@@ -17,6 +17,8 @@
 		0AC1467025E28D75009FF702 /* CovidAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1466F25E28D75009FF702 /* CovidAppUITests.swift */; };
 		0AC1468125E28DD8009FF702 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1468025E28DD8009FF702 /* Colors.swift */; };
 		0AC1469E25E29086009FF702 /* HealthCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC1469D25E29086009FF702 /* HealthCheckViewController.swift */; };
+		0AC146AB25E293B4009FF702 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC146AA25E293B4009FF702 /* Entity.swift */; };
+		0AC146B025E29419009FF702 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC146AF25E29419009FF702 /* API.swift */; };
 		642F483F7E27D5D5E893BD06 /* Pods_CovidApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E611E4DA6E370099661B4B1 /* Pods_CovidApp.framework */; };
 		E9237D2F60DB38A6271FF903 /* Pods_CovidApp_CovidAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3861EF31FEFF69F40A801150 /* Pods_CovidApp_CovidAppUITests.framework */; };
 		F2FFEEBC5B1E81C223E9751C /* Pods_CovidAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01399BA946C513760CBBB666 /* Pods_CovidAppTests.framework */; };
@@ -57,6 +59,8 @@
 		0AC1467125E28D75009FF702 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AC1468025E28DD8009FF702 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		0AC1469D25E29086009FF702 /* HealthCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCheckViewController.swift; sourceTree = "<group>"; };
+		0AC146AA25E293B4009FF702 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		0AC146AF25E29419009FF702 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		3861EF31FEFF69F40A801150 /* Pods_CovidApp_CovidAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CovidApp_CovidAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE56364E8EFFA569219EFAE /* Pods-CovidApp-CovidAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidApp-CovidAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-CovidApp-CovidAppUITests/Pods-CovidApp-CovidAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		468DB2E3B1A0A2D36F957448 /* Pods-CovidApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CovidApp.debug.xcconfig"; path = "Target Support Files/Pods-CovidApp/Pods-CovidApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 				0AC1464D25E28D74009FF702 /* AppDelegate.swift */,
 				0AC1464F25E28D74009FF702 /* SceneDelegate.swift */,
 				0AC1465125E28D74009FF702 /* ViewController.swift */,
+				0AC146AA25E293B4009FF702 /* Entity.swift */,
+				0AC146AF25E29419009FF702 /* API.swift */,
 				0AC1468025E28DD8009FF702 /* Colors.swift */,
 				0AC1465325E28D74009FF702 /* Main.storyboard */,
 				0AC1469D25E29086009FF702 /* HealthCheckViewController.swift */,
@@ -414,9 +420,11 @@
 			files = (
 				0AC1469E25E29086009FF702 /* HealthCheckViewController.swift in Sources */,
 				0AC1465225E28D74009FF702 /* ViewController.swift in Sources */,
+				0AC146AB25E293B4009FF702 /* Entity.swift in Sources */,
 				0AC1468125E28DD8009FF702 /* Colors.swift in Sources */,
 				0AC1464E25E28D74009FF702 /* AppDelegate.swift in Sources */,
 				0AC1465025E28D74009FF702 /* SceneDelegate.swift in Sources */,
+				0AC146B025E29419009FF702 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
