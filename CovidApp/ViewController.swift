@@ -102,7 +102,9 @@ class ViewController: UIViewController {
                 discharge.text = "\(result.discharge)"
             }
         })
+        
     }
+
     
     func setUpAPILabel(_ label: UILabel, size: CGSize, centerX: CGFloat, y:CGFloat, font: UIFont, color: UIColor, _ parentView: UIView) {
         label.frame.size = size
