@@ -157,6 +157,9 @@ extension HealthCheckViewController: FSCalendarDataSource, FSCalendarDelegate, F
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter.string(from: day)
     }
-    
+    func judgeWeekday(_ date: Date) -> Int {
+        let calendar = Calendar(identifier: .gregorian)
+        return calendar.component(.weekday, from: date)
+      }
 }
 
