@@ -20,12 +20,15 @@ class HealthCheckViewController: UIViewController {
         
         let scrollView = UIScrollView()
         scrollView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
-        scrollView.contentSize = CGSize(width: view.frame.size.width, height: 1000)
+        scrollView.contentSize = CGSize(width: view.frame.size.width, height: 950)
         view.addSubview(scrollView)
         
         let calendar = FSCalendar()
         calendar.frame = CGRect(x: 20, y: 10, width: view.frame.size.width - 40, height: 300)
         scrollView.addSubview(calendar)
+        calendar.appearance.headerTitleColor = colors.bluePurple
+        calendar.appearance.weekdayTextColor = colors.bluePurple
+        calendar.delegate = self
         
         let checkLabel = UILabel()
         
@@ -63,7 +66,22 @@ class HealthCheckViewController: UIViewController {
         createLabel(parentView: uiview5, text: "だるさがある")
         createUISwitch(parentView: uiview5, action: #selector(switchAction))
         
+        let resultButton = UIButton(type: .system)
+        resultButton.frame = CGRect(x: 0, y: 820, width: 200, height: 40)
+        resultButton.center.x = scrollView.center.x
+        resultButton.titleLabel?.font = .systemFont(ofSize: 20)
+        resultButton.layer.cornerRadius = 5
+        resultButton.setTitle("診断完了", for: .normal)
+        resultButton.setTitleColor(colors.white, for: .normal)
+        resultButton.backgroundColor = colors.blue
+        resultButton.addTarget(self, action: #selector(resultButtonAction), for: [.touchUpInside, .touchUpOutside])
+        scrollView.addSubview(resultButton)
     }
+    @objc func resultButtonAction() {
+        print("resultButtonTapped")
+    }
+    
+    
     
     @objc func switchAction(sender: UISwitch) {
         if sender.isOn {
@@ -105,7 +123,7 @@ class HealthCheckViewController: UIViewController {
         uiview.layer.shadowRadius = 4
         uiview.layer.shadowOffset = CGSize(width: 0, height: 2)
         return uiview
-    }
+        }
     /*
     // MARK: - Navigation
 
@@ -115,6 +133,30 @@ class HealthCheckViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-
+  }
+extension HealthCheckViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillDefaultColorFor date: Date) -> UIColor? {
+        return .clear
+    }
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderDefaultColorFor date: Date) -> UIColor? {
+        if dateFormatter(day: date) == dateFormatter(day: Date()) {
+        return colors.bluePurple
+    }
+        return .clear
+    }
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, borderRadiusFor date: Date) -> CGFloat {
+        return 0.5
+    }
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
+        return colors.black
+    }
+    
+    func dateFormatter(day: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: day)
+    }
+    
 }
+
